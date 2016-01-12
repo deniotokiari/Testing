@@ -19,7 +19,7 @@ public class BufferReadGzipTest extends AndroidTestCase {
     }
 
     public void test_JAVA() throws Exception {
-        BufferRider.read(getInputStream(), BufferRider.IReader.JAVA_BUFFERED_GZIP);
+        BufferRider.read(getInputStream(), BufferRider.IReader.JAVA_GZIP);
     }
 
     public void test_JAVA_BUFFERED() throws Exception {

@@ -11,6 +11,11 @@ public class BufferReadGzipTest {
     static final String PATH = "src\\main\\assets\\test_gz";
 
     @Test
+    public void OK_IO_STREAM() throws Exception {
+        BufferRider.read(getFileInputStream(), BufferRider.IReader.OK_IO_STREAM_GZIP);
+    }
+
+    @Test
     public void OK_IO() throws Exception {
         BufferRider.read(getFileInputStream(), BufferRider.IReader.OK_IO_GZIP);
     }

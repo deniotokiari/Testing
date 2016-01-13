@@ -21,13 +21,13 @@ public class BufferReadFileTest {
     }
 
     @Test
-    public void JAVA_READER() throws Exception {
-        BufferRider.read(getFileInputStream(), BufferRider.IReader.JAVA_READER_FILE);
+    public void JAVA() throws Exception {
+        BufferRider.read(getFileInputStream(), BufferRider.IReader.JAVA_FILE);
     }
 
     @Test
-    public void JAVA_BUFFERED_READER() throws Exception {
-        BufferRider.read(getFileInputStream(), BufferRider.IReader.JAVA_READER_BUFFERED_FILE);
+    public void JAVA_BUFFERED() throws Exception {
+        BufferRider.read(getFileInputStream(), BufferRider.IReader.JAVA_BUFFERED_FILE);
     }
 
     private FileInputStream getFileInputStream() throws FileNotFoundException {

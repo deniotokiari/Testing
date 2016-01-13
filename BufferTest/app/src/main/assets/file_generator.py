@@ -8,4 +8,4 @@ def generate_file(name, words, size):
                           
     f.close()             
 
-generate_file("test", ['Lorem', 'ipsum', 'dolor', 'sit', 'amet'], 1000000)
+generate_file("test", ['Lorem', 'ipsum', 'dolor', 'sit', 'amet'], 400000)

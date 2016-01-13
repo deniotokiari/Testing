@@ -28,8 +28,9 @@ public final class BufferRider {
             public void read(final InputStream stream) throws Exception {
                 final BufferedSource source = Okio.buffer(Okio.source(stream));
                 final InputStream inputStream = source.inputStream();
+                int a;
 
-                while (inputStream.read() != -1) {
+                while ((a = inputStream.read()) != -1) {
 
                 }
 
@@ -42,36 +43,37 @@ public final class BufferRider {
             public void read(final InputStream stream) throws Exception {
                 final BufferedSource source = Okio.buffer(Okio.source(stream));
 
-                source.readUtf8();
+                String a = source.readUtf8();
 
                 source.close();
             }
         };
-        IReader JAVA_READER_BUFFERED_FILE = new IReader() {
+        IReader JAVA_BUFFERED_FILE = new IReader() {
 
             @Override
             public void read(final InputStream stream) throws Exception {
                 final Reader reader = new InputStreamReader(stream);
                 final BufferedReader bufferedReader = new BufferedReader(reader);
+                int a;
 
-                while (bufferedReader.read() != -1) {
-                    // pass
+                while ((a = bufferedReader.read()) != -1) {
+
                 }
 
                 bufferedReader.close();
             }
         };
-        IReader JAVA_READER_FILE = new IReader() {
+        IReader JAVA_FILE = new IReader() {
 
             @Override
             public void read(final InputStream stream) throws Exception {
-                final Reader reader = new InputStreamReader(stream);
+                int a;
 
-                while (reader.read() != -1) {
-                    // pass
+                while ((a = stream.read()) != -1) {
+
                 }
 
-                reader.close();
+                stream.close();
             }
         };
 
@@ -82,7 +84,9 @@ public final class BufferRider {
             public void read(final InputStream stream) throws Exception {
                 final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new GZIPInputStream(stream)));
 
-                while (bufferedReader.read() != -1) {
+                int a;
+
+                while ((a = bufferedReader.read()) != -1) {
 
                 }
 
@@ -93,13 +97,30 @@ public final class BufferRider {
 
             @Override
             public void read(final InputStream stream) throws Exception {
-                final InputStreamReader reader = new InputStreamReader(new GZIPInputStream(stream));
+                final InputStream reader = new GZIPInputStream(stream);
 
-                while (reader.read() != -1) {
+                int a;
+
+                while ((a = reader.read()) != -1) {
 
                 }
 
                 reader.close();
+            }
+        };
+        IReader OK_IO_STREAM_GZIP = new IReader() {
+
+            @Override
+            public void read(final InputStream stream) throws Exception {
+                final BufferedSource source = Okio.buffer(new GzipSource(Okio.source(stream)));
+                final InputStream inputStream = source.inputStream();
+                int a;
+
+                while ((a = inputStream.read()) != -1) {
+
+                }
+
+                source.close();
             }
         };
         IReader OK_IO_GZIP = new IReader() {
@@ -107,11 +128,8 @@ public final class BufferRider {
             @Override
             public void read(final InputStream stream) throws Exception {
                 final BufferedSource source = Okio.buffer(new GzipSource(Okio.source(stream)));
-                final InputStream inputStream = source.inputStream();
 
-                while (inputStream.read() != -1) {
-
-                }
+                String a = source.readUtf8();
 
                 source.close();
             }
